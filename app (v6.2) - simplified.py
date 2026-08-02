@@ -1,14 +1,3 @@
-"""
-Data fetching: Price Return uses jugaad-data's index_df() (documented,
-stable) as primary. Total Return uses the direct niftyindices.com
-client as primary instead, with jugaad-data's index_tri_raw() as a
-secondary attempt — that function isn't in jugaad-data's public docs
-or README, so it's treated as less certain than the client whose 
-contract was verified against nsepython's known-working implementation.
-
-Requirements: see requirements.txt
-"""
-
 from __future__ import annotations
 
 import json
@@ -18,14 +7,11 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-import requests
 import streamlit as st
 import plotly.graph_objects as go
 from jugaad_data.nse import index_df as jugaad_index_df, index_tri_raw as jugaad_index_tri_raw
 from pypfopt import expected_returns, risk_models
 from pypfopt.efficient_frontier import EfficientFrontier
-from pypfopt import plotting
-import matplotlib.pyplot as plt
 
 
 # Page setup & styling
